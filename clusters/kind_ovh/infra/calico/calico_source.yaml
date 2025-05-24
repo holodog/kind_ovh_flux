@@ -7,4 +7,4 @@ spec:
   interval: 10m
   url: https://github.com/projectcalico/calico
   ref:
-    tag: v3.30.0
+    tag: v3.25.0
