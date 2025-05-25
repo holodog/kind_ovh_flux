@@ -5,6 +5,13 @@ metadata:
   labels:
     name: tigera-operator
 ---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: calico-system
+  labels:
+    name: calico-system    
+---
 apiVersion: source.toolkit.fluxcd.io/v1
 kind: HelmRepository
 metadata:
