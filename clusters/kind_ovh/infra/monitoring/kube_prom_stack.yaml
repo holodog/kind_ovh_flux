@@ -34,7 +34,8 @@ spec:
   #   server:
   #     root_url: https://${domain}/grafana/
   #     serve_from_sub_path: true
-  prometheus-node-exporter:
-    hostRootFsMount:
-      enabled: false
-      mountPropagation: HostToContainer
+  values:
+    prometheus-node-exporter:
+      hostRootFsMount:
+        enabled: false
+        mountPropagation: HostToContainer
