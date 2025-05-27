@@ -8,7 +8,7 @@ metadata:
 apiVersion: source.toolkit.fluxcd.io/v1
 kind: HelmRepository
 metadata:
-  name: kube_prom_stack
+  name: kube-prom-stack
   namespace: flux-system
 spec:
   interval: 60m
@@ -27,7 +27,7 @@ spec:
       version: 72.6.3
       sourceRef:
         kind: HelmRepository
-        name: kube_prom_stack
+        name: kube-prom-stack
         namespace: flux-system
   # grafana:
   # grafana.ini:
