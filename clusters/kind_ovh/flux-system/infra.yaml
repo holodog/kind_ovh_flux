@@ -12,5 +12,11 @@ spec:
     kind: GitRepository
     name: flux-system
   path: ./infra
+  vars:
+    - name: cluster-config
+      objref:
+        kind: ConfigMap
+        name: cluster-config
+        apiVersion: v1
   prune: true
   wait: true
