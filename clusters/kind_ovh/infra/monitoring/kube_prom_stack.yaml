@@ -49,13 +49,13 @@ spec:
         kind: HelmRepository
         name: kube-prom-stack
         namespace: monitoring
-  grafana:
-  grafana.ini:
-    server:
-      root_url: https://${domain}/grafana/
-      serve_from_sub_path: true
   values:
     prometheus-node-exporter:
       hostRootFsMount:
         enabled: false
         mountPropagation: HostToContainer
+    grafana:
+      grafana.ini:
+        server:
+          root_url: https://${domain}/grafana/
+          serve_from_sub_path: true
