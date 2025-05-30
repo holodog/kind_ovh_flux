@@ -13,8 +13,8 @@ spec:
     name: flux-system
   path: ./infra
   postBuild:
-    substitudeFrom:
-      kind: ConfigMap
+  substituteFrom:
+    - kind: ConfigMap
       name: cluster-config
   prune: true
   wait: true
