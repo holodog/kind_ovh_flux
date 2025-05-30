@@ -12,7 +12,7 @@ spec:
     kind: GitRepository
     name: flux-system
   path: ./infra
-  postBuild:
+  # postBuild:
   # substituteFrom:
   #   - kind: ConfigMap
   #     name: cluster-config
