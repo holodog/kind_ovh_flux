@@ -9,10 +9,11 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-    - http:
+    - host: $(HOSTNAME)
+      http:
         paths:
           - pathType: Prefix
-            path: /grafana
+            path: /grafana(/|$)(.*)
             backend:
               service:
                 name: kube-prometheus-stack-grafana
