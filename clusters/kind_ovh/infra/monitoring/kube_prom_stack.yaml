@@ -16,15 +16,16 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-  - http:
-      paths:
-      - pathType: Prefix
-        path: /grafana
-        backend:
-          service:
-            name: kube-prometheus-stack-grafana
-            port:
-              number: 3000
+    - host: $(HOSTNAME)
+      http:
+        paths:
+          - pathType: Prefix
+            path: /grafana
+            backend:
+              service:
+                name: kube-prometheus-stack-grafana
+                port:
+                  number: 3000
 ---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
@@ -61,9 +62,6 @@ metadata:
   name: kube-prometheus-stack
   namespace: monitoring
 spec:
-  grafana.ini:
-  server:
-    serve_from_sub_path: true
   interval: 10m
   chart:
     spec:
@@ -79,6 +77,10 @@ spec:
       valuesKey: hostname
       targetPath: grafana.grafana.ini.server.root_url
   values:
+    grafana:
+      grafana.ini:
+        server:
+          serve_from_sub_path: true
     prometheus-node-exporter:
       hostRootFsMount:
         enabled: false

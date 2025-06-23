@@ -1,0 +1,11 @@
+resources:
+  - kube_prom_stack.yaml
+
+vars:
+  - name: HOSTNAME
+    objref:
+      kind: ConfigMap
+      name: cluster-config
+      apiVersion: v1
+    fieldref:
+      fieldpath: data.hostname
