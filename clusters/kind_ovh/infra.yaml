@@ -5,10 +5,10 @@ metadata:
   namespace: flux-system
 spec:
   interval: 1h
+  path: ./infra
   sourceRef:
     kind: GitRepository
     name: flux-system
-  path: ./clusters/kind_ovh/infra
   prune: true
   wait: true
   postBuild:
