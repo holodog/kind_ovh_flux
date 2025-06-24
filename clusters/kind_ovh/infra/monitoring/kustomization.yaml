@@ -7,7 +7,7 @@ resources:
   - ingress.yaml
 
 vars:
-  - name: HOSTNAME
+  - name: hostname
     objref:
       kind: ConfigMap
       name: cluster-config
