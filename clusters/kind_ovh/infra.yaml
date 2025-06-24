@@ -15,4 +15,3 @@ spec:
     substituteFrom:
       - kind: ConfigMap
         name: cluster-config
-        optional: false
