@@ -4,13 +4,13 @@ metadata:
   name: infra
   namespace: flux-system
 spec:
-  interval: 10m
+  interval: 1m
   path: ./infra
   prune: true
-  wait: true
   sourceRef:
     kind: GitRepository
     name: flux-system
+  wait: true
   postBuild:
     substituteFrom:
       - kind: ConfigMap

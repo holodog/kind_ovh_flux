@@ -9,7 +9,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-    - host: $(HOSTNAME)
+    - host: ${hostname}
       http:
         paths:
           - pathType: Prefix
@@ -30,7 +30,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-    - host: $(HOSTNAME)
+    - host: ${hostname}
       http:
         paths:
           - pathType: Prefix
