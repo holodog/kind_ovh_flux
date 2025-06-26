@@ -2,8 +2,7 @@ apiVersion: v1
 kind: Namespace
 metadata:
   name: ingress-nginx
-  labels:
-    name: ingress-nginx 
+
 ---
 apiVersion: source.toolkit.fluxcd.io/v1
 kind: HelmRepository
@@ -11,8 +10,9 @@ metadata:
   name: ingress-nginx
   namespace: ingress-nginx
 spec:
-  interval: 60m
+  interval: 1h
   url: https://kubernetes.github.io/ingress-nginx
+
 ---
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
