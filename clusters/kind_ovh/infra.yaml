@@ -4,7 +4,7 @@ metadata:
   name: infra
   namespace: flux-system
 spec:
-  interval: 1m
+  interval: 5m
   path: ./infra
   prune: true
   sourceRef:
@@ -15,4 +15,3 @@ spec:
     substituteFrom:
       - kind: ConfigMap
         name: cluster-config
-        optional: false
