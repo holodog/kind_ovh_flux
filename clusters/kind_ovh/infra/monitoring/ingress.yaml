@@ -1,3 +1,4 @@
+# kind_ovh_flux/clusters/kind_ovh/infra/monitoring/ingress.yaml
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
@@ -9,7 +10,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-    - host: $(hostname)
+    - host: placeholder.host.to.be.patched
       http:
         paths:
           - pathType: Prefix
@@ -30,7 +31,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-    - host: $(hostname)
+    - host: placeholder.host.to.be.patched
       http:
         paths:
           - pathType: Prefix

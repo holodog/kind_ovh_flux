@@ -1,18 +1,27 @@
+# kind_ovh_flux/clusters/kind_ovh/infra/monitoring/kustomization.yaml
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
+
 namespace: monitoring
 
 resources:
   - helmrelease.yaml
   - helmrepo.yaml
   - ingress.yaml
-  # - cluster-config.yaml
 
-# vars:
-#   - name: HOSTNAME
-#     objref:
-#       kind: ConfigMap
-#       name: cluster-config
-#       apiVersion: v1
-#     fieldref:
-#       fieldpath: data.hostname
+replacements:
+  - source:
+      kind: ConfigMap
+      name: cluster-config
+      fieldPath: data.hostname
+    targets:
+      - select:
+          kind: Ingress
+          name: grafana-ingress
+        fieldPaths:
+          - spec.rules.0.host
+      - select:
+          kind: Ingress
+          name: prometheus-ingress
+        fieldPaths:
+          - spec.rules.0.host

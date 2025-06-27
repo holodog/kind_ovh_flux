@@ -16,13 +16,12 @@ spec:
   valuesFrom:
     - kind: ConfigMap
       name: cluster-config
-      valuesKey: hostname
+      valuesKey: grafana_root_url
       targetPath: grafana.grafana.ini.server.root_url
   values:
     grafana:
       grafana.ini:
         server:
-          root_url: https://$(HOSTNAME)/grafana/
           serve_from_sub_path: true
     prometheus-node-exporter:
       hostRootFsMount:
