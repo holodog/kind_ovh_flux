@@ -1,29 +1,24 @@
-apiVersion: helm.toolkit.fluxcd.io/v2beta1
+apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
   name: kube-prometheus-stack
   namespace: monitoring
 spec:
-  interval: 10m
+  interval: 5m
   chart:
     spec:
       chart: kube-prometheus-stack
-      version: 72.6.3
+      version: '35.2.0'
       sourceRef:
         kind: HelmRepository
-        name: kube-prom-stack
-        namespace: monitoring
-  valuesFrom:
-    - kind: ConfigMap
-      name: cluster-config
-      valuesKey: grafana_root_url
-      targetPath: grafana.grafana.ini.server.root_url
+        name: prometheus-community
+        namespace: flux-system
   values:
     grafana:
-      grafana.ini:
-        server:
-          serve_from_sub_path: true
-    prometheus-node-exporter:
-      hostRootFsMount:
+      enabled: true
+      ingress:
         enabled: false
-        mountPropagation: HostToContainer
+    prometheus:
+      enabled: true
+      ingress:
+        enabled: false

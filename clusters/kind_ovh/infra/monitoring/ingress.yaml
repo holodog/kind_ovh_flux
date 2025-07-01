@@ -10,7 +10,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-    - host: ovh.pbarysiuk.onedumb.com
+    - host: $(hostname)
       http:
         paths:
           - pathType: ImplementationSpecific
@@ -31,7 +31,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-    - host: ovh.pbarysiuk.onedumb.com
+    - host: $(hostname)
       http:
         paths:
           - pathType: ImplementationSpecific
