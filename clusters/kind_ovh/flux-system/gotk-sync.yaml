@@ -31,7 +31,3 @@ spec:
     substituteFrom:
     - kind: ConfigMap
       name: cluster-config-copy
-  postBuild:
-    substituteFrom:
-    - kind: ConfigMap
-      name: cluster-config-copy
