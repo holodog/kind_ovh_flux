@@ -25,6 +25,12 @@ spec:
   sourceRef:
     kind: GitRepository
     name: flux-system
+  dependsOn:
+  - name: config-copier
+  postBuild:
+    substituteFrom:
+    - kind: ConfigMap
+      name: cluster-config-copy
   postBuild:
     substituteFrom:
     - kind: ConfigMap
