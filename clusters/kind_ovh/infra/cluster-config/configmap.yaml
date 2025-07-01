@@ -5,4 +5,4 @@ metadata:
   namespace: default
 data:
   hostname: ovh.pbarysiuk.onedumb.com
-cluster-configs
+---
