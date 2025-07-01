@@ -5,3 +5,20 @@ resources:
   - cluster-config
   - ingress
   - monitoring
+
+replacements:
+  - source:
+      kind: ConfigMap
+      name: cluster-config
+      fieldPath: data.hostname
+    targets:
+      - select:
+          kind: Ingress
+          name: grafana-ingress
+        fieldPaths:
+          - spec.rules.0.host
+      - select:
+          kind: Ingress
+          name: prometheus-ingress
+        fieldPaths:
+          - spec.rules.0.host
