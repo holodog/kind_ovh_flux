@@ -13,7 +13,7 @@ spec:
     - host: placeholder.host.to.be.patched
       http:
         paths:
-          - pathType: Prefix
+          - pathType: ImplementationSpecific
             path: /grafana(/|$)(.*)
             backend:
               service:
@@ -34,7 +34,7 @@ spec:
     - host: placeholder.host.to.be.patched
       http:
         paths:
-          - pathType: Prefix
+          - pathType: ImplementationSpecific
             path: /prometheus(/|$)(.*)
             backend:
               service:
