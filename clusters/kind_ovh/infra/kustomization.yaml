@@ -5,20 +5,27 @@ resources:
   - ingress
   - monitoring
 
-replacements:
-  - source:
-      kind: ConfigMap
-      name: cluster-config
-      namespace: default
-      fieldPath: data.hostname
-    targets:
-      - select:
-          kind: Ingress
-          name: grafana-ingress
-        fieldPaths:
-          - spec.rules.0.host
-      - select:
-          kind: Ingress
-          name: prometheus-ingress
-        fieldPaths:
-          - spec.rules.0.host
+configMapGenerator:
+- name: cluster-config
+  namespace: default
+  behavior: merge
+  literals: []
+
+vars:
+- name: HOSTNAME
+  objref:
+    kind: ConfigMap
+    name: cluster-config
+    apiVersion: v1
+  fieldref:
+    fieldpath: data.hostname
+
+patches:
+- path: patches/grafana-ingress.yaml
+  target:
+    kind: Ingress
+    name: grafana-ingress
+- path: patches/prometheus-ingress.yaml
+  target:
+    kind: Ingress
+    name: prometheus-ingress
