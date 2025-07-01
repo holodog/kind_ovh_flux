@@ -22,6 +22,7 @@ spec:
   interval: 10m0s
   path: ./clusters/kind_ovh
   prune: true
+  prune: true
   sourceRef:
     kind: GitRepository
     name: flux-system
