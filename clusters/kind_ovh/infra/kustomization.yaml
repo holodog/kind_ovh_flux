@@ -9,6 +9,7 @@ replacements:
   - source:
       kind: ConfigMap
       name: cluster-config
+      namespace: default
       fieldPath: data.hostname
     targets:
       - select:
