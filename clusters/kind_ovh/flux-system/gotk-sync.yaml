@@ -28,5 +28,4 @@ spec:
   postBuild:
     substituteFrom:
     - kind: ConfigMap
-      name: cluster-config
-      namespace: default
+      name: cluster-config-copy
