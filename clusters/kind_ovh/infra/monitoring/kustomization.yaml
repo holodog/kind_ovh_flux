@@ -1,4 +1,3 @@
-# kind_ovh_flux/clusters/kind_ovh/infra/monitoring/kustomization.yaml
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
@@ -8,6 +7,12 @@ resources:
   - helmrelease.yaml
   - helmrepo.yaml
   - ingress.yaml
+
+postBuild:
+  substituteFrom:
+  - kind: ConfigMap
+    name: cluster-config
+    namespace: default
 
 
 
