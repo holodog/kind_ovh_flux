@@ -4,6 +4,7 @@ metadata:
   name: nginx-ingress
   namespace: ingress-nginx
 spec:
+  interval: 60m
   targetNamespace: ingress-nginx
   releaseName: nginx-ingress
   chart:
