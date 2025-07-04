@@ -1,6 +1,0 @@
-resources:
-  - helmrepository/ingress-nginx.yaml
-  - helmrepository/prometheus-community.yaml
-  - helmrelease/nginx-ingress.yaml
-  - helmrelease/kube-prometheus-stack.yaml
-  - grafana-ingress.yaml
