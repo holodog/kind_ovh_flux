@@ -41,7 +41,7 @@ spec:
     - kind: ConfigMap
       name: cluster-config
       valuesKey: hostname
-      targetPath: grafana.ingress.tls.hosts[0]
+      targetPath: grafana.ingress.tls[0].hosts[0]
   values:
     grafana:
       grafana.ini:
