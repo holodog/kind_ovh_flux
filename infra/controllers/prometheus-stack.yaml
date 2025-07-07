@@ -23,15 +23,20 @@ spec:
   chart:
     spec:
       chart: kube-prometheus-stack
-      version: "*"
+      version: 75.9.0
       sourceRef:
         kind: HelmRepository
         name: prometheus-stack
         namespace: telemetry
       interval: 12h
-  valuesFrom:
-    - kind: ConfigMap
-      name: cluster-config
-      optional: false
-      valuesKey: grafana_root_url
-      targetPath: grafana.server.rootUrl
+  values:
+    grafana:
+      envFrom:
+        - configMapRef:
+            name: cluster-config
+            namespace: default
+      grafana.ini:
+        server:
+          root_url: "%(grafana_root_url)s"
+          domain: "#(hostname)"
+          enforce_domain: false
