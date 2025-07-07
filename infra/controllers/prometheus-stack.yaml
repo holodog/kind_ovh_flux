@@ -38,8 +38,29 @@ spec:
       name: cluster-config
       valuesKey: hostname
       targetPath: grafana.grafana.ini.server.domain
+    - kind: ConfigMap
+      name: cluster-config
+      valuesKey: hostname
+      targetPath: grafana.ingress.hosts[0]
   values:
     grafana:
       grafana.ini:
         server:
           enforce_domain: false
+      ingress:
+        enabled: true
+        ingressClassName: nginx
+        annotations:
+          cert-manager.io/cluster-issuer: letsencrypt
+          nginx.ingress.kubernetes.io/rewrite-target: /$2
+          nginx.ingress.kubernetes.io/use-regex: "true"
+        paths:
+          - path: /grafana(/|$)(.*)
+            pathType: Prefix
+        tls:
+          - secretName: grafana-tls
+            hosts:
+              - "" # Populated by valuesFrom
+      service:
+        type: ClusterIP
+        port: 80
