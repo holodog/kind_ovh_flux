@@ -32,12 +32,10 @@ spec:
   valuesFrom:
     - kind: ConfigMap
       name: cluster-config
-      namespace: flux-system
       valuesKey: grafana_root_url
       targetPath: grafana.grafana.ini.server.root_url
     - kind: ConfigMap
       name: cluster-config
-      namespace: flux-system
       valuesKey: hostname
       targetPath: grafana.grafana.ini.server.domain
   values:
