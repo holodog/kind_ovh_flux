@@ -23,7 +23,7 @@ spec:
   chart:
     spec:
       chart: kube-prometheus-stack
-      version: 75.9.0
+      version: "75.9.0"
       sourceRef:
         kind: HelmRepository
         name: prometheus-stack
@@ -38,5 +38,5 @@ spec:
       grafana.ini:
         server:
           root_url: "%(grafana_root_url)s"
-          domain: "#(hostname)"
+          domain: "%(hostname)s"
           enforce_domain: false
