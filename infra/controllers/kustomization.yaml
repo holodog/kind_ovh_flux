@@ -4,4 +4,4 @@ resources:
   - cert-manager-crds.yaml
   - cert-manager.yaml
   - ingress-nginx.yaml
-  - prometheus-stack
+  - prometheus-stack.yaml
