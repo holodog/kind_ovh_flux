@@ -16,7 +16,5 @@ spec:
     substituteFrom:
     - kind: ConfigMap
       name: cluster-config
-      namespace: default
   dependsOn:
     - name: prometheus-stack
-      namespace: telemetry

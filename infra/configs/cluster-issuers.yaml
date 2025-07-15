@@ -14,15 +14,4 @@ spec:
     solvers:
     - http01:
         ingress:
-          class: nginx
-          podTemplate:
-            spec:
-              nodeSelector:
-                kubernetes.io/os: linux
-          ingressTemplate:
-            spec:
-              rules:
-              - http:
-                  paths:
-                  - pathType: Prefix
-                    path: /.well-known/acme-challenge/
+          ingressClassName: nginx
