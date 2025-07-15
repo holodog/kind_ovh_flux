@@ -10,6 +10,7 @@ spec:
   sourceRef:
     kind: GitRepository
     name: flux-system
-  path: ./infra/controllers/prometheus-stack
+  path: ./infra/controllers
+  namePrefix: prometheus-stack-
   prune: true
   wait: true
