@@ -17,4 +17,5 @@ spec:
     - kind: ConfigMap
       name: cluster-config
   dependsOn:
-    - name: prometheus-stack
+    - name: infra-controllers
+      namespace: flux-system
