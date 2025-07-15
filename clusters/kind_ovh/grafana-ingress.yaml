@@ -11,8 +11,6 @@ spec:
     kind: GitRepository
     name: flux-system
   postBuild:
-    substitute:
-      hostname: "" # This will be replaced by the value from the ConfigMap
     substituteFrom:
     - kind: ConfigMap
       name: cluster-config
