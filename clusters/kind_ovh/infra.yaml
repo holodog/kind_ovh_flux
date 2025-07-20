@@ -5,7 +5,7 @@ metadata:
   namespace: flux-system
 spec:
   interval: 10m
-  path: "./infra"
+  path: "./clusters/kind_ovh/infra"
   prune: true
   sourceRef:
     kind: GitRepository
@@ -17,5 +17,4 @@ spec:
     substituteFrom:
       - kind: ConfigMap
         name: cluster-config
-wait: true
 prune: true
