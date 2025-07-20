@@ -17,4 +17,3 @@ spec:
     substituteFrom:
       - kind: ConfigMap
         name: cluster-config
-prune: true
