@@ -22,7 +22,6 @@ spec:
   values:
     crds:
       enabled: true
-    installCRDs: false
     prometheus:
       enabled: true
       servicemonitor:
