@@ -34,5 +34,3 @@ spec:
         enabled: true
     webhook:
       timeoutSeconds: 30
-    startupapicheck:
-      timeoutSeconds: 30
