@@ -18,6 +18,8 @@ spec:
     crds: CreateReplace
     createNamespace: true
     timeout: 10m
+    remediation:
+      retries: 5
   upgrade:
     crds: CreateReplace
     remediation:
@@ -30,3 +32,7 @@ spec:
       enabled: true
       servicemonitor:
         enabled: true
+    webhook:
+      timeoutSeconds: 30
+    startupapicheck:
+      timeoutSeconds: 30
