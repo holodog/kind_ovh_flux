@@ -1,19 +1,19 @@
-# apiVersion: kustomize.toolkit.fluxcd.io/v1
-# kind: Kustomization
-# metadata:
-#   name: infra
-#   namespace: flux-system
-# spec:
-#   interval: 10m
-#   path: "./clusters/kind_ovh/infra"
-#   prune: true
-#   sourceRef:
-#     kind: GitRepository
-#     name: flux-system
-#   dependsOn:
-#     - name: flux-system
-#   postBuild:
-#     substitute: {}
-#     substituteFrom:
-#       - kind: ConfigMap
-#         name: cluster-config
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: infra
+  namespace: flux-system
+spec:
+  interval: 10m
+  path: "./clusters/kind_ovh/infra"
+  prune: true
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
+  dependsOn:
+    - name: flux-system
+  postBuild:
+    substitute: {}
+    substituteFrom:
+      - kind: ConfigMap
+        name: cluster-config
