@@ -17,10 +17,12 @@ spec:
   install:
     crds: CreateReplace
     createNamespace: true
+    timeout: 10m
   upgrade:
     crds: CreateReplace
     remediation:
       remediateLastFailure: true
+    timeout: 10m
   values:
     crds:
       enabled: true
