@@ -29,7 +29,7 @@ spec:
     crds: CreateReplace
     remediation:
       remediateLastFailure: true
-      timeout: 10m
+    timeout: 10m
   valuesFrom:
     - kind: ConfigMap
       name: cluster-config
