@@ -10,10 +10,10 @@ spec:
   ingressClassName: nginx
   tls:
   - hosts:
-    - "${hostname}"
+    - "$(hostname)"
     secretName: grafana-dash-tls
   rules:
-  - host: "${hostname}"
+  - host: "$(hostname)"
     http:
       paths:
       - path: /grafana
