@@ -10,7 +10,7 @@ spec:
     disableAccountKeyGeneration: false
     enableDurationFeature: true
     privateKeySecretRef:
-      name: letsencrypt-staging-newkey
+      name: letsencrypt-staging
     solvers:
     - http01:
         ingress:
