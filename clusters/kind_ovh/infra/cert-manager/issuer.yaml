@@ -6,12 +6,12 @@ metadata:
 spec:
   acme:
     server: https://acme-staging-v02.api.letsencrypt.org/directory
-    email: sh.holod@gmail.com
     preferredChain: "ISRG Root X1"
+    email: sh.holod@gmail.com
     privateKeySecretRef:
       name: letsencrypt-staging
     solvers:
-      - http01:
-          ingress:
-            class: nginx
+    - http01:
+        ingress:
+          class: nginx
 ---
