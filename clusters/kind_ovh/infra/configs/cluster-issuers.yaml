@@ -6,12 +6,17 @@ metadata:
 spec:
   acme:
     server: https://acme-staging-v02.api.letsencrypt.org/directory
-    preferredChain: "ISRG Root X1"
     email: sh.holod@gmail.com
+    disableAccountKeyGeneration: false
+    enableDurationFeature: true
     privateKeySecretRef:
-      name: letsencrypt-staging
+      name: letsencrypt-staging-newkey
     solvers:
     - http01:
         ingress:
           class: nginx
+          podTemplate:
+            spec:
+              nodeSelector:
+                kubernetes.io/os: linux
 ---
