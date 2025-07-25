@@ -11,7 +11,7 @@ spec:
   tls:
   - hosts:
     - "${hostname}"
-    secretName: quickstart-example-tls
+    secretName: grafana-dash-tls
   rules:
   - host: "${hostname}"
     http:
