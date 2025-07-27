@@ -11,10 +11,10 @@ spec:
   ingressClassName: nginx
   tls:
   - hosts:
-    - {{ lookup "v1" "ConfigMap" "default" "cluster-config".metadata.items.hostname }}
+    - {{ lookup "v1" "ConfigMap" "default" "cluster-config".data.hostname }}
     secretName: grafana-dash-tls
   rules:
-  - host: {{ lookup "v1" "ConfigMap" "default" "cluster-config".metadata.items.hostname }}
+  - host: {{ lookup "v1" "ConfigMap" "default" "cluster-config".data.hostname }}
     http:
       paths:
       - path: /grafana
