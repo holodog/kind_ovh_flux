@@ -1,27 +1,29 @@
-{{- $cfg := lookup "v1" "ConfigMap" "flux-system" "cluster-config" }}
-{{- $host := get $cfg.data "hostname" }}
-
+{{- $cm := lookup "v1" "ConfigMap" .Values.configMapNamespace .Values.configMapName -}}
+{{- if $cm -}}
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: grafana-dashboard
+  name: grafana-ingress
   namespace: telemetry
   annotations:
-    cert-manager.io/cluster-issuer: "letsencrypt-staging"
+    cert-manager.io/cluster-issuer: "letsencrypt"  # If using cert-manager
 spec:
-  ingressClassName: nginx
+  ingressClassName: {{ .Values.ingress.className }}
   tls:
-  - hosts:
-      - {{ $host }}
-    secretName: grafana-dash-tls
+    - hosts:
+        - {{ index $cm.data "hostname" | quote }}  # Lookup hostname from ConfigMap
+      secretName: {{ .Values.ingress.tlsSecretName }}
   rules:
-    - host: {{ $host }}
+    - host: {{ index $cm.data "hostname" | quote }}
       http:
         paths:
-          - path: /grafana
+          - path: /
             pathType: Prefix
             backend:
               service:
                 name: prometheus-stack-grafana
                 port:
-                  number: 3000
+                  number: 80
+{{- else -}}
+{{- fail "ConfigMap not found" -}}
+{{- end -}}

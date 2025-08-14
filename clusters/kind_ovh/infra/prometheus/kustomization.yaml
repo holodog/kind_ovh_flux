@@ -3,4 +3,4 @@ kind: Kustomization
 resources:
   - source.yaml
   - helm-release.yaml
-  - ingress.yaml
+  - prome-grafana-ingress.yaml
