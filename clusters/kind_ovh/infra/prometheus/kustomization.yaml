@@ -4,7 +4,3 @@ resources:
   - source.yaml
   - helm-release.yaml
   - prome-grafana-ingress.yaml
-postBuild:
-  substituteFrom:
-    - kind: ConfigMap
-      name: cluster-config

@@ -1,7 +1,8 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
-  - ./cert-manager
-  - ./prometheus
-  - ./ingress
-  - ./configs
+  - cert-manager
+  - configs
+  - custom
+  - ingress
+  - prometheus-kustomization.yaml
