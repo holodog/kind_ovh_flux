@@ -5,4 +5,4 @@ resources:
   - configs
   - custom
   - ingress
-  - prometheus-kustomization.yaml
+  - prometheus
