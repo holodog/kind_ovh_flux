@@ -11,10 +11,10 @@ spec:
   ingressClassName: nginx
   tls:
     - hosts:
-        - $(hostname)
+        - ${hostname}
       secretName: telemetry-tls
   rules:
-    - host: $(hostname)
+    - host: ${hostname}
       http:
         paths:
           - path: /.well-known/acme-challenge/
