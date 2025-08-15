@@ -43,6 +43,7 @@ spec:
         proxy-body-size: "100M"
         ssl-protocols: "TLSv1.3 TLSv1.2"
         use-forwarded-headers: "true"
+        strict-validate-path-type: false
       resources:
         requests:
           cpu: 10m
