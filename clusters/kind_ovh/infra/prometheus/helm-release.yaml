@@ -46,4 +46,4 @@ spec:
           domain: ${hostname}
           root_url: https://${hostname}/grafana
           enforce_domain: false
-          serve_from_sub_path: true
+          serve_from_sub_path: false
