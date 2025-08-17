@@ -39,12 +39,9 @@ spec:
       name: cluster-config
       valuesKey: hostname
       targetPath: grafana.grafana.ini.server.domain
-    - kind: ConfigMap
-      name: cluster-config
-      valuesKey: hostname
-      targetPath: grafana.ingress.tls[0].hosts[0]
   values:
     grafana:
       grafana.ini:
         server:
           enforce_domain: false
+          serve_from_sub_path: true
