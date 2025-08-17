@@ -30,18 +30,20 @@ spec:
     remediation:
       remediateLastFailure: true
     timeout: 10m
-  valuesFrom:
-    - kind: ConfigMap
-      name: cluster-config
-      valuesKey: grafana_root_url
-      targetPath: grafana.grafana.ini.server.root_url
-    - kind: ConfigMap
-      name: cluster-config
-      valuesKey: hostname
-      targetPath: grafana.grafana.ini.server.domain
+  # valuesFrom:
+  #   - kind: ConfigMap
+  #     name: cluster-config
+  #     valuesKey: grafana_root_url
+  #     targetPath: grafana.grafana.ini.server.root_url
+  #   - kind: ConfigMap
+  #     name: cluster-config
+  #     valuesKey: hostname
+  #     targetPath: grafana.grafana.ini.server.domain
   values:
     grafana:
       grafana.ini:
         server:
+          domain: ${hostname}
+          root_url: ${grafana_root_url}
           enforce_domain: false
           serve_from_sub_path: true
