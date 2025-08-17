@@ -44,6 +44,6 @@ spec:
       grafana.ini:
         server:
           domain: ${hostname}
-          root_url: ${grafana_root_url}
+          root_url: https://${hostname}/grafana
           enforce_domain: false
           serve_from_sub_path: true
