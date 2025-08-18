@@ -33,3 +33,4 @@ spec:
   values:
     config:
       clusterWide: false
+---

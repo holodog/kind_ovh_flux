@@ -1,0 +1,33 @@
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: app-secret
+  namespace: cnpg-system
+type: Opaque
+stringData:
+  password: "app_test"
+---
+apiVersion: postgresql.cnpg.io/v1
+kind: Cluster
+metadata:
+  name: test-db
+  namespace: cnpg-system
+spec:
+  instances: 3
+  storage:
+    size: 1Gi
+  monitoring:
+    enablePodMonitor: true
+  bootstrap:
+    initdb:
+      database: test
+      owner: test
+      dataChecksums: true
+      localeCollate: 'en_US'
+      localeCType: 'en_US'
+      postInitSQL:
+        - CREATE DATABASE angu
+      secret:
+        name: app-secret
+---
