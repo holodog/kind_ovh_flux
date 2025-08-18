@@ -6,3 +6,4 @@ resources:
   - custom
   - ingress
   - prometheus-kustomization.yaml
+  - postgres
