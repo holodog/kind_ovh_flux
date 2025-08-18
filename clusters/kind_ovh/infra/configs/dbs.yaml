@@ -24,8 +24,8 @@ spec:
       database: test
       owner: test
       dataChecksums: true
-      localeCollate: 'en_US'
-      localeCType: 'en_US'
+      localeCollate: 'C.UTF-8'
+      localeCType: 'C.UTF-8'
       postInitSQL:
         - CREATE DATABASE angu
       secret:
