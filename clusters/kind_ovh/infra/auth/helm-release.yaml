@@ -7,13 +7,13 @@ metadata:
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
-  name: codecentric/keycloakx
+  name: keycloakx
   namespace: id
 spec:
   interval: 15m
   chart:
     spec:
-      chart: cert-manager
+      chart: keycloakx
       version: 7.1.2
       sourceRef:
         kind: HelmRepository
