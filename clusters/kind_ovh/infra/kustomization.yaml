@@ -7,3 +7,4 @@ resources:
   - ingress
   - prometheus-kustomization.yaml
   - postgres
+  - auth
