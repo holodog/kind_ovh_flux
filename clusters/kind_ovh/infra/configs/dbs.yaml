@@ -6,7 +6,7 @@ metadata:
   namespace: cnpg-system
 type: Opaque
 stringData:
-  password: "app_test"
+  password: ${auth_db_password}
 ---
 apiVersion: postgresql.cnpg.io/v1
 kind: Cluster
@@ -21,11 +21,11 @@ spec:
     enablePodMonitor: true
   bootstrap:
     initdb:
-      database: test
-      owner: test
-      dataChecksums: true
-      postInitSQL:
-        - CREATE DATABASE angu
-      secret:
-        name: app-secret
+      database: ${auth_db_name}
+      # owner: ${auth_db_user}
+      # dataChecksums: true
+      # postInitSQL:
+      #   - CREATE DATABASE angu
+      # secret:
+      #   name: app-secret
 ---
