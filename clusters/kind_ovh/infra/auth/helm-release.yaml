@@ -45,3 +45,31 @@ spec:
     #   username: '{{ .Values.dbUser }}'
     #   password: '{{ .Values.dbPassword }}'
     #   database: mydb
+    extraEnv:
+      - name: DB_VENDOR
+        value: postgres
+      - name: DB_ADDR
+        valueFrom:
+          secretKeyRef:
+            name: keycloak-db
+            key: host
+      - name: DB_PORT
+        valueFrom:
+          secretKeyRef:
+            name: keycloak-db
+            key: port
+      - name: DB_DATABASE
+        valueFrom:
+          secretKeyRef:
+            name: keycloak-db
+            key: dbname
+      - name: DB_USER
+        valueFrom:
+          secretKeyRef:
+            name: keycloak-db
+            key: username
+      - name: DB_PASSWORD
+        valueFrom:
+          secretKeyRef:
+            name: keycloak-db
+            key: password
