@@ -41,14 +41,7 @@ spec:
       vendor: postgres
       existingSecret: keycloak-database-app
       existingSecretKey: password
-    # secrets:
-    #   admin-creds:
-    #     annotations:
-    #       my-test-annotation: Test secret for {{ include "keycloak.fullname" . }}
-    #     stringData:
-    #       user: admin
-    #       password: secret
-    extraEnv:
+    extraEnv: |
       - name: DB_VENDOR
         value: postgres
       - name: KC_DB_URL_HOST
