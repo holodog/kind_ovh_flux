@@ -35,16 +35,19 @@ spec:
       enabled: true
     webhook:
       timeoutSeconds: 30
-    postgresql:
-      enabled: false
-      existingSecret: keycloak-app
-    # database:
-    #   vendor: postgres
-    #   hostname: mypostgres
-    #   port: 5432
-    #   username: '{{ .Values.dbUser }}'
-    #   password: '{{ .Values.dbPassword }}'
-    #   database: mydb
+    dbchecker:
+      enabled: true
+    database:
+      vendor: postgres
+      existingSecret: keycloak-database-app
+      existingSecretKey: password
+    # secrets:
+    #   admin-creds:
+    #     annotations:
+    #       my-test-annotation: Test secret for {{ include "keycloak.fullname" . }}
+    #     stringData:
+    #       user: admin
+    #       password: secret
     extraEnv:
       - name: DB_VENDOR
         value: postgres
