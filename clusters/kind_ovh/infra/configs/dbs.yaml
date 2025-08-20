@@ -11,7 +11,7 @@ stringData:
 apiVersion: postgresql.cnpg.io/v1
 kind: Cluster
 metadata:
-  name: test-db
+  name: "${auth_db_name}"
   namespace: cnpg-system
 spec:
   instances: 3
