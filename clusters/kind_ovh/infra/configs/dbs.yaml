@@ -19,9 +19,9 @@ spec:
     size: 1Gi
   monitoring:
     enablePodMonitor: true
-  bootstrap:
-    initdb:
-      database: ${auth_db_name}
+  # bootstrap:
+  #   initdb:
+  #     database: ${auth_db_name}
       # owner: ${auth_db_user}
       # dataChecksums: true
       # postInitSQL:
