@@ -48,28 +48,28 @@ spec:
     extraEnv:
       - name: DB_VENDOR
         value: postgres
-      - name: DB_ADDR
+      - name: KC_DB_URL_HOST
         valueFrom:
           secretKeyRef:
-            name: keycloak-db
+            name: keycloak-app
             key: host
-      - name: DB_PORT
+      - name: KC_DB_URL_PORT
         valueFrom:
           secretKeyRef:
-            name: keycloak-db
+            name: keycloak-app
             key: port
-      - name: DB_DATABASE
+      - name: KC_DB_URL_DATABASE
         valueFrom:
           secretKeyRef:
-            name: keycloak-db
+            name: keycloak-app
             key: dbname
-      - name: DB_USER
+      - name: KC_DB_USERNAME
         valueFrom:
           secretKeyRef:
-            name: keycloak-db
+            name: keycloak-app
             key: username
-      - name: DB_PASSWORD
+      - name: KEYCLOAK_ADMIN_PASSWORD
         valueFrom:
           secretKeyRef:
-            name: keycloak-db
+            name: keycloak-app
             key: password
