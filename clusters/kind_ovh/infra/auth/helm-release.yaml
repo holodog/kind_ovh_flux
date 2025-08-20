@@ -35,8 +35,6 @@ spec:
       enabled: true
     webhook:
       timeoutSeconds: 30
-    dbchecker:
-      enabled: true
     postgresql:
       enabled: false
       existingSecret: keycloak-app
