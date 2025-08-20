@@ -6,12 +6,12 @@ metadata:
   namespace: cnpg-system
 type: Opaque
 stringData:
-  password: ${auth_db_password}
+  password: "${auth_db_password}"
 ---
 apiVersion: postgresql.cnpg.io/v1
 kind: Cluster
 metadata:
-  name: ${auth_db_name}
+  name: keycloak
   namespace: cnpg-system
 spec:
   instances: 3
