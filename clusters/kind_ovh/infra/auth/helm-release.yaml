@@ -35,3 +35,12 @@ spec:
       enabled: true
     webhook:
       timeoutSeconds: 30
+    dbchecker:
+      enabled: true
+    database:
+      vendor: postgres
+      hostname: mypostgres
+      port: 5432
+      username: '{{ .Values.dbUser }}'
+      password: '{{ .Values.dbPassword }}'
+      database: mydb

@@ -3,8 +3,6 @@ kind: Kustomization
 resources:
   - cert-manager
   - configs
-  - custom
   - ingress
-  - prometheus-kustomization.yaml
   - postgres
   - auth
