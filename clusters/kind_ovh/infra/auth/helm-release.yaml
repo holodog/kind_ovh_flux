@@ -37,10 +37,13 @@ spec:
       timeoutSeconds: 30
     dbchecker:
       enabled: true
-    database:
-      vendor: postgres
-      hostname: mypostgres
-      port: 5432
-      username: '{{ .Values.dbUser }}'
-      password: '{{ .Values.dbPassword }}'
-      database: mydb
+    postgresql:
+      enabled: false
+      existingSecret: keycloak-app
+    # database:
+    #   vendor: postgres
+    #   hostname: mypostgres
+    #   port: 5432
+    #   username: '{{ .Values.dbUser }}'
+    #   password: '{{ .Values.dbPassword }}'
+    #   database: mydb
