@@ -30,7 +30,7 @@ spec:
     remediation:
       remediateLastFailure: true
     timeout: 10m
-  values:
-    config:
-      clusterWide: false
+  # values:
+  #   config:
+  #     clusterWide: false
 ---
