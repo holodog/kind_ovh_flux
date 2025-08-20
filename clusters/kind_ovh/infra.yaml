@@ -10,8 +10,8 @@ spec:
   sourceRef:
     kind: GitRepository
     name: flux-system
-  dependsOn:
-    - name: flux-system
+  # dependsOn:
+  #   - name: flux-system
 ---
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
@@ -46,8 +46,8 @@ spec:
     substituteFrom:
       - kind: ConfigMap
         name: cluster-config
-  dependsOn:
-      - name: infra
+  # dependsOn:
+  #     - name: infra
 ---
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
@@ -65,6 +65,6 @@ spec:
     substituteFrom:
       - kind: ConfigMap
         name: cluster-config
-  dependsOn:
-      - name: infra
+  # dependsOn:
+  #     - name: infra
 ---
