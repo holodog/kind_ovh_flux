@@ -11,7 +11,7 @@ stringData:
 apiVersion: postgresql.cnpg.io/v1
 kind: Cluster
 metadata:
-  name: "${auth_db_name}"
+  name: ${auth_db_name}
   namespace: cnpg-system
 spec:
   instances: 3
@@ -21,7 +21,7 @@ spec:
     enablePodMonitor: true
   bootstrap:
     initdb:
-      database: "${auth_db_name}"
+      database: ${auth_db_name}
       # owner: ${auth_db_user}
       # dataChecksums: true
       # postInitSQL:
