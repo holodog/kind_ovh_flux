@@ -21,7 +21,7 @@ spec:
     enablePodMonitor: true
   bootstrap:
     initdb:
-      database: ${auth_db_name}
+      database: "${auth_db_name}"
       # owner: ${auth_db_user}
       # dataChecksums: true
       # postInitSQL:
