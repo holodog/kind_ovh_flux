@@ -4,6 +4,18 @@ kind: Namespace
 metadata:
   name: id
 ---
+apiVersion: postgresql.cnpg.io/v1
+kind: Cluster
+metadata:
+  name: keycloak
+  namespace: id
+spec:
+  instances: 3
+  storage:
+    size: 1Gi
+  monitoring:
+    enablePodMonitor: true
+---
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
