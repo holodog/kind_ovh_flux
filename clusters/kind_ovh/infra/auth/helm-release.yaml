@@ -45,8 +45,6 @@ spec:
   values:
   crds:
     enabled: true
-  webhook:
-    timeoutSeconds: 30
   command:
     - "/opt/keycloak/bin/kc.sh"
     - "--verbose"
