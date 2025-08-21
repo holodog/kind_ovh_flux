@@ -5,4 +5,4 @@ resources:
   - configs
   - ingress
   - postgres
-  - auth
+  # - auth
