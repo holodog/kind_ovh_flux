@@ -35,8 +35,6 @@ spec:
       enabled: true
     webhook:
       timeoutSeconds: 30
-    # dbchecker:
-    #   enabled: true
     command:
       - "/opt/keycloak/bin/kc.sh"
       - "--verbose"
@@ -45,10 +43,6 @@ spec:
       - "--hostname-strict=false"
       - "--spi-events-listener-jboss-logging-success-level=info"
       - "--spi-events-listener-jboss-logging-error-level=warn"
-    # database:
-    #   vendor: postgres
-    #   existingSecret: keycloak-app
-    #   existingSecretKey: password
     extraEnv: |
       - name: DB_VENDOR
         value: postgres
