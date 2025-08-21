@@ -65,8 +65,6 @@ spec:
     substituteFrom:
       - kind: ConfigMap
         name: cluster-config
-      - kind: Secret
-        name: keycloak-app
   # dependsOn:
   #     - name: infra
 ---
