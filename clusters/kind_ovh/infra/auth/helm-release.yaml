@@ -43,8 +43,6 @@ spec:
       remediateLastFailure: true
     timeout: 10m
   values:
-  crds:
-    enabled: true
   command:
     - "/opt/keycloak/bin/kc.sh"
     - "--verbose"
