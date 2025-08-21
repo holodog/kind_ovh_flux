@@ -83,3 +83,5 @@ spec:
           secretKeyRef:
             name: keycloak-app
             key: password
+      - name: KC_CACHE
+        value: local
