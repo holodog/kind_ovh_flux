@@ -74,12 +74,14 @@ spec:
       existingSecret: keycloak-admin
       existingSecretAdminUserKey: username
       existingSecretAdminPasswordKey: password
-    extraArgs:
+    command:  # Explicitly set command to ensure correct execution
+      - "/opt/keycloak/bin/kc.sh"
       - "start"
+    args:  # Move arguments here for clarity
       - "--verbose"
       - "--http-port=8080"
       - "--hostname-strict=false"
-      - "--log-level=DEBUG"  # Enable debug logging
+      - "--log-level=DEBUG"
       - "--spi-events-listener-jboss-logging-success-level=info"
       - "--spi-events-listener-jboss-logging-error-level=warn"
     extraEnvVars:  # Override conflicting environment variables
