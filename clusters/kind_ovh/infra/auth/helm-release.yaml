@@ -43,14 +43,14 @@ spec:
   install:
     crds: CreateReplace
     createNamespace: true
-    timeout: 10m
+    timeout: 15m
     remediation:
       retries: 5
   upgrade:
     crds: CreateReplace
     remediation:
       remediateLastFailure: true
-    timeout: 10m
+    timeout: 15m
   values:
     cache:
       config: local
