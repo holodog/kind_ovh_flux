@@ -50,33 +50,33 @@ spec:
       - "--hostname-strict=false"
       - "--spi-events-listener-jboss-logging-success-level=info"
       - "--spi-events-listener-jboss-logging-error-level=warn"
-    extraEnv: |
-      - name: DB_VENDOR
-        value: postgres
-      - name: KC_DB_URL_HOST
-        valueFrom:
-          secretKeyRef:
-            name: keycloak-app
-            key: host
-      - name: KC_DB_URL_PORT
-        valueFrom:
-          secretKeyRef:
-            name: keycloak-app
-            key: port
-      - name: KC_DB_URL_DATABASE
-        valueFrom:
-          secretKeyRef:
-            name: keycloak-app
-            key: dbname
-      - name: KC_DB_USERNAME
-        valueFrom:
-          secretKeyRef:
-            name: keycloak-app
-            key: username
-      - name: KEYCLOAK_ADMIN_PASSWORD
-        valueFrom:
-          secretKeyRef:
-            name: keycloak-app
-            key: password
-      - name: KC_CACHE
-        value: local
+    extraEnvVars:
+    - name: DB_VENDOR
+      value: postgres
+    - name: KC_DB_URL_HOST
+      valueFrom:
+        secretKeyRef:
+          name: keycloak-app
+          key: host
+    - name: KC_DB_URL_PORT
+      valueFrom:
+        secretKeyRef:
+          name: keycloak-app
+          key: port
+    - name: KC_DB_URL_DATABASE
+      valueFrom:
+        secretKeyRef:
+          name: keycloak-app
+          key: dbname
+    - name: KC_DB_USERNAME
+      valueFrom:
+        secretKeyRef:
+          name: keycloak-app
+          key: username
+    - name: KEYCLOAK_ADMIN_PASSWORD
+      valueFrom:
+        secretKeyRef:
+          name: keycloak-app
+          key: password
+    - name: KC_CACHE
+      value: local
