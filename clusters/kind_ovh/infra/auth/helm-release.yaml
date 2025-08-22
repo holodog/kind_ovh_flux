@@ -51,54 +51,33 @@ spec:
     remediation:
       remediateLastFailure: true
     timeout: 10m
-  values:
-    auth:
-      adminUser: admin
-      adminPassword: admin
-    cache:
-      config: local
-    extraArgs:
-      - "--verbose"
-      - "start"
-      - "--http-port=8080"
-      - "--hostname-strict=false"
-      - "--spi-events-listener-jboss-logging-success-level=info"
-      - "--spi-events-listener-jboss-logging-error-level=warn"
-    extraEnv: |
-      - name: KC_DB
-        value: "postgres"
-      - name: KC_DB_URL_HOST
-        valueFrom:
-          secretKeyRef:
-            name: keycloak-app
-            key: host
-      - name: KC_DB_URL_PORT
-        valueFrom:
-          secretKeyRef:
-            name: keycloak-app
-            key: port
-      - name: KC_DB_URL_DATABASE
-        valueFrom:
-          secretKeyRef:
-            name: keycloak-app
-            key: dbname
-      - name: KC_DB_USERNAME
-        valueFrom:
-          secretKeyRef:
-            name: keycloak-app
-            key: username
-      - name: KC_DB_PASSWORD
-        valueFrom:
-          secretKeyRef:
-            name: keycloak-app
-            key: password
-      - name: KEYCLOAK_ADMIN
-        valueFrom:
-          secretKeyRef:
-            name: keycloak-admin
-            key: username
-      - name: KEYCLOAK_ADMIN_PASSWORD
-        valueFrom:
-          secretKeyRef:
-            name: keycloak-admin
-            key: password
+    values:
+      cache:
+        config: local
+      http:
+        relativePath: /keycloak
+        httpEnabled: true
+        proxyHeaders: forwarded
+      metrics:
+        enabled: true
+      health:
+        enabled: true
+      database:
+        vendor: postgres
+        existingSecret: keycloak-app
+        existingSecretHostKey: host
+        existingSecretPortKey: port
+        existingSecretDatabaseKey: dbname
+        existingSecretUsernameKey: username
+        existingSecretPasswordKey: password
+      auth:
+        existingSecret: keycloak-admin
+        existingSecretAdminUserKey: username
+        existingSecretAdminPasswordKey: password
+      extraArgs:
+        - "--verbose"
+        - "start"
+        - "--http-port=8080"
+        - "--hostname-strict=false"
+        - "--spi-events-listener-jboss-logging-success-level=info"
+        - "--spi-events-listener-jboss-logging-error-level=warn"
