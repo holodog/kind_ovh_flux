@@ -52,8 +52,8 @@ spec:
       remediateLastFailure: true
     timeout: 15m
   values:
-    cache:
-      config: local
+    # cache:
+    #   config: local
     http:
       relativePath: /keycloak
       httpEnabled: true
@@ -65,11 +65,12 @@ spec:
     database:
       vendor: postgres
       existingSecret: keycloak-app
-      existingSecretHostKey: host
-      existingSecretPortKey: port
-      existingSecretDatabaseKey: dbname
-      existingSecretUsernameKey: username
-      existingSecretPasswordKey: password
+      existingSecretKey: password
+      # existingSecretHostKey: host
+      # existingSecretPortKey: port
+      # existingSecretDatabaseKey: dbname
+      # existingSecretUsernameKey: username
+      # existingSecretPasswordKey: password
     auth:
       existingSecret: keycloak-admin
       existingSecretAdminUserKey: username
@@ -84,11 +85,41 @@ spec:
       - "--log-level=WARN"
       - "--spi-events-listener-jboss-logging-success-level=info"
       - "--spi-events-listener-jboss-logging-error-level=warn"
-    extraEnvVars:  # Override conflicting environment variables
-      - name: KC_CACHE
-        value: "local"  # Ensure consistency with cache.config
-      - name: KC_CACHE_STACK
-        value: ""  # Clear to avoid conflicts with local cache
+    extraEnv: |
+      - name: KEYCLOAK_ADMIN
+        valueFrom:
+          secretKeyRef:
+            name: keycloak-admin
+            key: username
+      - name: KEYCLOAK_ADMIN_PASSWORD
+        valueFrom:
+          secretKeyRef:
+            name: keycloak-admin
+            key: password
+      - name: JAVA_OPTS_APPEND
+        value: >-
+          -XX:MaxRAMPercentage=50.0
+          -Djgroups.dns.query=keycloakx-headless
+      - name: KC_DB_URL_HOST
+        valueFrom:
+          secretKeyRef:
+            name: keycloak-app
+            key: host
+      - name: KC_DB_URL_PORT
+        valueFrom:
+          secretKeyRef:
+            name: keycloak-app
+            key: port
+      - name: KC_DB_URL_DATABASE
+        valueFrom:
+          secretKeyRef:
+            name: keycloak-app
+            key: dbname
+      - name: KC_DB_USERNAME
+        valueFrom:
+          secretKeyRef:
+            name: keycloak-app
+            key: username
     resources:
       requests:
         cpu: "500m"
