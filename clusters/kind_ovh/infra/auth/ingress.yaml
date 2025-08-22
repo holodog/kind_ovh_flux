@@ -11,10 +11,10 @@ spec:
   ingressClassName: nginx
   tls:
   - hosts:
-    - id."${hostname}"
+    - id.${hostname}
     secretName: keycloak-tls
   rules:
-  - host: id."${hostname}"
+  - host: id.${hostname}
     http:
       path: /keycloak(/|$)(.*)
       pathType: Prefix
