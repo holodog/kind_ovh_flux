@@ -82,3 +82,15 @@ spec:
       - "--log-level=DEBUG"  # Enable debug logging
       - "--spi-events-listener-jboss-logging-success-level=info"
       - "--spi-events-listener-jboss-logging-error-level=warn"
+    extraEnvVars:  # Override conflicting environment variables
+      - name: KC_CACHE
+        value: "local"  # Ensure consistency with cache.config
+      - name: KC_CACHE_STACK
+        value: ""  # Clear to avoid conflicts with local cache
+    resources:
+      requests:
+        cpu: "500m"
+        memory: "512Mi"
+      limits:
+        cpu: "1000m"
+        memory: "1024Mi"
