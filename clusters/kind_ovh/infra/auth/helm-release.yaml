@@ -55,6 +55,8 @@ spec:
     auth:
       adminUser: admin
       adminPassword: admin
+    cache:
+      config: local
     extraArgs:
       - "--verbose"
       - "start"
@@ -63,20 +65,6 @@ spec:
       - "--spi-events-listener-jboss-logging-success-level=info"
       - "--spi-events-listener-jboss-logging-error-level=warn"
     extraEnv: |
-      - name: KC_HTTP_RELATIVE_PATH
-        value: "/keycloak"
-      - name: KC_CACHE
-        value: "local"
-      - name: KC_CACHE_STACK
-        value: "kubernetes"
-      - name: KC_PROXY_HEADERS
-        value: "forwarded"
-      - name: KC_HTTP_ENABLED
-        value: "true"
-      - name: KC_METRICS_ENABLED
-        value: "true"
-      - name: KC_HEALTH_ENABLED
-        value: "true"
       - name: KC_DB
         value: "postgres"
       - name: KC_DB_URL_HOST
