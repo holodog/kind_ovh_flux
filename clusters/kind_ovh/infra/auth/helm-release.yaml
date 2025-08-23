@@ -15,6 +15,18 @@ spec:
   monitoring:
     enablePodMonitor: true
 ---
+apiVersion: postgresql.cnpg.io/v1
+kind: Cluster
+metadata:
+  name: ${auth_db_name}
+  namespace: id
+spec:
+  instances: 3
+  storage:
+    size: 1Gi
+  monitoring:
+    enablePodMonitor: true
+---
 apiVersion: v1
 kind: Secret
 metadata:
@@ -22,8 +34,8 @@ metadata:
   namespace: id
 type: Opaque
 stringData:
-  username: admin
-  password: admin1234
+  username: ${auth_db_user}
+  password: ${auth_db_password}
 ---
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
