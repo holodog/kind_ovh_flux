@@ -21,6 +21,13 @@ metadata:
   name: ${auth_db_name}
   namespace: id
 spec:
+  description: "Simple pg cluster for keycloack"
+  bootstrap:
+    initdb:
+      database: ${auth_db_name}
+      owner: ${auth_db_user}
+      secret:
+        name: ${auth_db_password}
   instances: 3
   storage:
     size: 1Gi
