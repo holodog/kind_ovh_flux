@@ -83,6 +83,10 @@ spec:
       enabled: true
     database:
       vendor: postgres
+      hostname: ${auth_db_name}-rw
+      port: 5432
+      username: ${auth_db_user}
+      password: ${auth_db_password}
       existingSecret: keycloak-app
       existingSecretKey: password
       # existingSecretHostKey: host
@@ -104,41 +108,41 @@ spec:
       - "--log-level=WARN"
       - "--spi-events-listener-jboss-logging-success-level=info"
       - "--spi-events-listener-jboss-logging-error-level=warn"
-    extraEnv: |
-      - name: KC_BOOTSTRAP_ADMIN_USERNAME
-        valueFrom:
-          secretKeyRef:
-            name: keycloak-admin
-            key: username
-      - name: KC_BOOTSTRAP_ADMIN_PASSWORD
-        valueFrom:
-          secretKeyRef:
-            name: keycloak-admin
-            key: password
-      - name: JAVA_OPTS_APPEND
-        value: >-
-          -XX:MaxRAMPercentage=50.0
-          -Djgroups.dns.query=keycloakx-headless
-      - name: KC_DB_URL_HOST
-        valueFrom:
-          secretKeyRef:
-            name: keycloak-app
-            key: host
-      - name: KC_DB_URL_PORT
-        valueFrom:
-          secretKeyRef:
-            name: keycloak-app
-            key: port
-      - name: KC_DB_URL_DATABASE
-        valueFrom:
-          secretKeyRef:
-            name: keycloak-app
-            key: dbname
-      - name: KC_DB_USERNAME
-        valueFrom:
-          secretKeyRef:
-            name: keycloak-app
-            key: username
+    # extraEnv: |
+    #   - name: KC_BOOTSTRAP_ADMIN_USERNAME
+    #     valueFrom:
+    #       secretKeyRef:
+    #         name: keycloak-admin
+    #         key: username
+    #   - name: KC_BOOTSTRAP_ADMIN_PASSWORD
+    #     valueFrom:
+    #       secretKeyRef:
+    #         name: keycloak-admin
+    #         key: password
+    #   - name: JAVA_OPTS_APPEND
+    #     value: >-
+    #       -XX:MaxRAMPercentage=50.0
+    #       -Djgroups.dns.query=keycloakx-headless
+    #   - name: KC_DB_URL_HOST
+    #     valueFrom:
+    #       secretKeyRef:
+    #         name: keycloak-app
+    #         key: host
+    #   - name: KC_DB_URL_PORT
+    #     valueFrom:
+    #       secretKeyRef:
+    #         name: keycloak-app
+    #         key: port
+    #   - name: KC_DB_URL_DATABASE
+    #     valueFrom:
+    #       secretKeyRef:
+    #         name: keycloak-app
+    #         key: dbname
+    #   - name: KC_DB_USERNAME
+    #     valueFrom:
+    #       secretKeyRef:
+    #         name: keycloak-app
+    #         key: username
     resources:
       requests:
         cpu: "500m"
