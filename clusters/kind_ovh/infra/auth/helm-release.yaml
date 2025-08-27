@@ -27,7 +27,7 @@ spec:
       database: ${auth_db_name}
       owner: ${auth_db_user}
       secret:
-        name: ${auth_db_password}
+        name: keycloak-admin
   instances: 3
   storage:
     size: 1Gi
