@@ -86,7 +86,7 @@ spec:
       hostname: ${auth_db_name}-rw
       port: 5432
       username: ${auth_db_user}
-      password: ${auth_db_password}
+      # password: ${auth_db_password}
       existingSecret: keycloak-app
       existingSecretKey: password
       # existingSecretHostKey: host
