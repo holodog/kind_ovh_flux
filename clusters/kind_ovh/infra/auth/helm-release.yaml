@@ -88,7 +88,7 @@ spec:
       username: ${auth_db_user}
       database: ${auth_db_name}
       # password: ${auth_db_password}
-      existingSecret: keycloak-app
+      existingSecret: keycloak-admin
       existingSecretKey: password
       # existingSecretHostKey: host
       # existingSecretPortKey: port
