@@ -71,8 +71,8 @@ spec:
       remediateLastFailure: true
     timeout: 15m
   values:
-    # cache:
-    #   config: local
+    cache:
+      stack: local
     http:
       relativePath: /keycloak
       httpEnabled: true
